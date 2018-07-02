@@ -11,7 +11,7 @@ public class Point {
 
   public double calculateDistance(Point p) {
       double dx = this.p1 - p.p1;
-      double dy =  this.p1 - p.p2;
+      double dy =  this.p2 - p.p2;
       return Math.sqrt((dx * dx) + (dy * dy));
 
   }
