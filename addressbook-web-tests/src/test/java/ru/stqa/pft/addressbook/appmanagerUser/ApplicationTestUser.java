@@ -47,6 +47,7 @@ public class ApplicationTestUser {
             wd.findElement(By.id("4")).click();
         }
         wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+        wd.switchTo().alert().accept();
     }
 
     public UserHelper getUserHelper() {
