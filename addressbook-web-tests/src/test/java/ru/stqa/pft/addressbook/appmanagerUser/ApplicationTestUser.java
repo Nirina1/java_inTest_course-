@@ -43,8 +43,8 @@ public class ApplicationTestUser {
 
     public void deleteUser() {
         wd.findElement(By.linkText("home")).click();
-        if (!wd.findElement(By.id("4")).isSelected()) {
-            wd.findElement(By.id("4")).click();
+        if (!wd.findElement(By.id("content")).isSelected()) {
+            wd.findElement(By.id("content")).click();
         }
         wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
         wd.switchTo().alert().accept();
