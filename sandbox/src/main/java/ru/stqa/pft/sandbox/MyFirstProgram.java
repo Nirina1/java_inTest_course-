@@ -10,7 +10,7 @@ public class MyFirstProgram {
         //double dy;
         //double distance;
         //dx = p1.p1 - p2.p1;
-        //dy = p2.p1 - p2.p2;
+        //dy = p2.p2 - p2.p2;
         //distance = Math.sqrt((dx * dx) + (dy * dy));
         //System.out.println("" + distance);
 
