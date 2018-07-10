@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.modelUser;
+package ru.stqa.pft.addressbook.modelGroup;
 
 public class PersonData {
     private final String firstName;
