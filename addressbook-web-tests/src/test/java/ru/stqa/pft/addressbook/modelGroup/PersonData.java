@@ -2,28 +2,27 @@ package ru.stqa.pft.addressbook.modelGroup;
 
 public class PersonData {
     private final String firstName;
-    private final String middleName;
+    //private final String middleName;
     private final String lastName;
     private final String companyName;
     private final String mobilePhone;
     private final String emailAddress;
+    private String group;
 
-    public PersonData(String firstName, String middleName, String lastName, String companyName, String mobilePhone, String emailAddress) {
+    public PersonData(String firstName, String lastName, String group, String companyName, String mobilePhone, String emailAddress) {
         this.firstName = firstName;
-        this.middleName = middleName;
         this.lastName = lastName;
         this.companyName = companyName;
         this.mobilePhone = mobilePhone;
         this.emailAddress = emailAddress;
+        this.group = group;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public String getMiddleName() {
-        return middleName;
-    }
+    //public String getMiddleName() {return middleName;}
 
     public String getLastName() {
         return lastName;
@@ -40,4 +39,11 @@ public class PersonData {
     public String getEmailAddress() {
         return emailAddress;
     }
+
+
+    public String getGroup() { return group; }
+
+
 }
+
+

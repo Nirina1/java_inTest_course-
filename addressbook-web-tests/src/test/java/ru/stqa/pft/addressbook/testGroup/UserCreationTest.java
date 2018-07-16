@@ -11,7 +11,7 @@ public class UserCreationTest extends TestBase {
     public void testUserCreationTest() {
 
         app.getGroupHelper().newPersonCreation();
-        app.getGroupHelper().fillingTheForm(new PersonData("NewUser", "TestName", "TestLastName", "TestCompany", "4872812406", "example@testGroup.com"));
+        app.getGroupHelper().fillingTheForm(new PersonData("NewUser", "TestName", "Test1", "TestCompany", "4872812406", "example@testGroup.com"));
         app.getGroupHelper().submittingPersonCreation();
     }
 

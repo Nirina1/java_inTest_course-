@@ -57,7 +57,6 @@ public class TestsHelper extends HelperBase {
 
     public void fillingTheForm(PersonData personNew) {
         type(By.name("firstname"), personNew.getFirstName());
-        type(By.name("middlename"), personNew.getMiddleName());
         type(By.name("lastname"), personNew.getLastName());
         type(By.name("company"), personNew.getCompanyName());
         type(By.name("mobile"), personNew.getMobilePhone());
@@ -71,6 +70,11 @@ public class TestsHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
+    public void submitPersonModification() { click(By.name("update")); }
+
+    public void initPersonModification() {
+         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+      }
 
     public void newPersonCreation() {
         click(By.linkText("add new"));
