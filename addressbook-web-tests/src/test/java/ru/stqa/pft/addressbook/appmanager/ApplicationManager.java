@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
-    ;
+
     WebDriver wd;
 
     private SessionHelper sessionHelper;
@@ -35,17 +35,17 @@ public class ApplicationManager {
 
     public void init() {
 
-        if (browser == org.openqa.selenium.remote.BrowserType.FIREFOX) {
+        if (browser.equals(org.openqa.selenium.remote.BrowserType.FIREFOX)) {
             wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
 
-        } else if (browser == org.openqa.selenium.remote.BrowserType.CHROME) {
+        } else if (browser.equals(org.openqa.selenium.remote.BrowserType.CHROME)) {
             wd = new ChromeDriver();
-            } else if (browser == org.openqa.selenium.remote.BrowserType.IE) {
+            } else if (browser.equals(org.openqa.selenium.remote.BrowserType.IE)) {
             wd = new InternetExplorerDriver();
         }
 
         //wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         groupHelper = new TestsHelper(wd);
         navigationHelper = new NavigationHelper(wd);

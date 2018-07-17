@@ -12,7 +12,7 @@ public class UserModificationTest extends TestBase{
 
         app.getGroupHelper().selectUser();
         app.getGroupHelper().initPersonModification();
-        app.getGroupHelper().fillingTheForm(new PersonData("NewUser111", "TestName111", "Test111", "TestCompany", "4872812406", "example@testGroup.com"));
+        app.getGroupHelper().fillingTheForm(new PersonData("NewUser111", "TestName111", null, "TestCompany", "4872812406", "example@testGroup.com"), false);
         app.getGroupHelper().submitPersonModification();
         app.getNavigationHelper().goHomePage();
 
