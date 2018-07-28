@@ -88,4 +88,15 @@ public class TestsHelper extends HelperBase {
     public void newPersonCreation() {
         click(By.linkText("add new"));
     }
+
+    public void createGroup(GroupData group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        returnToGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+      return isElementPresent(By.name("selected[]"));
+    }
 }
