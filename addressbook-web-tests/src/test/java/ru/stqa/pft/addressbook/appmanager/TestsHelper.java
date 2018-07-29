@@ -103,11 +103,12 @@ public class TestsHelper extends HelperBase {
     }
 
     public boolean isThereAGroup() {
-      return isElementPresent(By.id("search_count]"));
+      return isElementPresent(By.name("selected[]"));
     }
 
     public boolean isThereAUser() {
         return isElementPresent(By.name("selected[]"));
+
     }
 
 
