@@ -65,8 +65,9 @@ public class TestsHelper extends HelperBase {
         type(By.name("mobile"), personNew.getMobilePhone());
         type(By.name("email"), personNew.getEmailAddress());
 
+
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(personNew.getGroup());
+           new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(personNew.getGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -96,7 +97,18 @@ public class TestsHelper extends HelperBase {
         returnToGroupPage();
     }
 
-    public boolean isThereAGroup() {
-      return isElementPresent(By.name("selected[]"));
+    public void createUser(PersonData user) {
+        fillingTheForm(user, true );
+        submittingPersonCreation();
     }
+
+    public boolean isThereAGroup() {
+      return isElementPresent(By.id("search_count]"));
+    }
+
+    public boolean isThereAUser() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+
 }
