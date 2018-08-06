@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import sun.plugin2.util.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +16,8 @@ public class ApplicationManager {
 
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
-    private TestsHelper groupHelper;
+    private GroupHelper groupHelper;
+    private ContactHelper contactHelper;
     private String browser;
 
     public ApplicationManager(String browser) {
@@ -47,7 +47,7 @@ public class ApplicationManager {
         //wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
-        groupHelper = new TestsHelper(wd);
+        groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
@@ -58,8 +58,11 @@ public class ApplicationManager {
         wd.quit();
     }
 
-    public TestsHelper getGroupHelper() {
+    public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+    public ContactHelper getContactHelper() {
+        return contactHelper;
     }
 
     public NavigationHelper getNavigationHelper() {
