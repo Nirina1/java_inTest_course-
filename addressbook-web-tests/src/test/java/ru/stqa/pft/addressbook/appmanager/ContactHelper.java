@@ -1,12 +1,15 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import jdk.nashorn.internal.runtime.NumberToString;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import ru.stqa.pft.addressbook.modelGroup.GroupData;
 import ru.stqa.pft.addressbook.modelGroup.PersonData;
 
+import javax.swing.table.TableColumn;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +28,7 @@ public class ContactHelper extends HelperBase {
     public void fillingTheForm(PersonData personNew, boolean creation) {
         type(By.name("firstname"), personNew.getFirstName());
         type(By.name("lastname"), personNew.getLastName());
-        type(By.name("company"), personNew.getCompanyName());
+        //type(By.name("company"), personNew.getCompanyName());
         //type(By.name("mobile"), personNew.getMobilePhone());
         //type(By.name("email"), personNew.getEmailAddress());
 
@@ -44,7 +47,9 @@ public class ContactHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
-    public void submitPersonModification() { click(By.name("update")); }
+    public void submitPersonModification() {
+        click(By.name("update"));
+    }
 
     public void initPersonModification() {
         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
@@ -55,7 +60,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void createUser(PersonData user) {
-        fillingTheForm(user, true );
+        fillingTheForm(user, true);
         submittingPersonCreation();
     }
 
@@ -74,12 +79,20 @@ public class ContactHelper extends HelperBase {
 
     public List<PersonData> getContactList() {
         List<PersonData> users = new ArrayList<PersonData>();
-        List<WebElement> elements = wd.findElements(By.name("selected[]"));//id("maintable"));
-        for (WebElement element : elements) {
-            String name = element.getText();
-            PersonData user = new PersonData("firstname", "lastname", null, null);
-            users.add(user);
+        List<WebElement> rows = wd.findElements(By.name("entry"));
+        for (WebElement row : rows) {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            String firstName = cells.get(2).getText();
+            String lastName = cells.get(1).getText();
+
+            int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
+
+            PersonData person = new PersonData(id, firstName, lastName, null);
+            users.add(person);
+
         }
         return users;
+
     }
 }
+

@@ -13,7 +13,7 @@ public class UserDeletionTest extends TestBase {
 
 
         if (! app.getContactHelper().isThereAUser()) {
-              app.getContactHelper().createUser(new PersonData("NewUser", "TestName", null, "TestCompany"));
+              app.getContactHelper().createUser(new PersonData( "TestName", null, "Test1"));
         }
         List<PersonData> before = app.getContactHelper().getContactList();
         app.getContactHelper().selectUser(before.size() - 1);
