@@ -17,17 +17,20 @@ public class UserCreationTest extends TestBase {
         app.getNavigationHelper().goHomePage();
         List<PersonData> before = app.getContactHelper().getContactList();
         app.getContactHelper().newPersonCreation();
-        PersonData user = new PersonData("TestName2", "TestName1", "test1");
+        PersonData user = new PersonData("Test1", "TestName1", "test1");
         app.getContactHelper().fillingTheForm(user,true);
         app.getContactHelper().submittingPersonCreation();
         app.getNavigationHelper().goHomePage();
         List<PersonData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size() + 1);
 
-       user.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+       //user.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
 
         before.add(user);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+        Comparator<? super PersonData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(before, after);
     }
 
 }

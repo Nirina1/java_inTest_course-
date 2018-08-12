@@ -19,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserCreationTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserCreationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserCreationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
+            <state relative-caret-position="238">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserModificationTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserModificationTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserModificationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="27" column="73" lean-forward="true" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+            <state relative-caret-position="269">
+              <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -43,8 +43,8 @@
       <file leaf-file-name="UserDeletionTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserDeletionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+            <state relative-caret-position="34">
+              <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,16 +55,11 @@
       <file leaf-file-name="ContactHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+            <state relative-caret-position="1275">
+              <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#deleteUser#0;class#ContactHelper#0" />
-                <element signature="e#1513#1514#0" expanded="true" />
-                <element signature="e#1553#1554#0" expanded="true" />
-                <element signature="e#1979#1980#0" expanded="true" />
-                <element signature="e#2052#2053#0" expanded="true" />
-                <element signature="e#2303#2315#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +68,8 @@
       <file leaf-file-name="PersonData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/modelGroup/PersonData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="83" column="1" lean-forward="true" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+            <state relative-caret-position="124">
+              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
               <folding>
                 <element signature="e#2258#2259#0" expanded="true" />
                 <element signature="e#2286#2287#0" expanded="true" />
@@ -478,10 +473,10 @@
         <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/modelGroup/GroupData.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserDeletionTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/modelGroup/PersonData.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserModificationTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserCreationTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/modelGroup/PersonData.java" />
       </list>
     </option>
   </component>
@@ -497,8 +492,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -563,6 +556,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -583,7 +578,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.UserCreationTest">
+  <component name="RunManager" selected="TestNG.UserModificationTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -779,9 +774,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.UserCreationTest" />
-        <item itemvalue="TestNG.UserDeletionTest" />
         <item itemvalue="TestNG.UserModificationTest" />
+        <item itemvalue="TestNG.UserDeletionTest" />
+        <item itemvalue="TestNG.UserCreationTest" />
         <item itemvalue="TestNG.UserModificationTest.testUserModification" />
         <item itemvalue="TestNG.GroupCreationTests" />
       </list>
@@ -801,35 +796,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserDeletionTest - 2018.08.11 at 22h 03m 48s.xml">
+    <history-entry file="UserModificationTest - 2018.08.12 at 13h 20m 56s.xml">
+      <configuration name="UserModificationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserModificationTest - 2018.08.12 at 13h 21m 25s.xml">
+      <configuration name="UserModificationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserCreationTest - 2018.08.12 at 13h 21m 49s.xml">
+      <configuration name="UserCreationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserModificationTest - 2018.08.12 at 13h 22m 38s.xml">
+      <configuration name="UserModificationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserCreationTest - 2018.08.12 at 13h 23m 29s.xml">
+      <configuration name="UserCreationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserCreationTest - 2018.08.12 at 13h 32m 02s.xml">
+      <configuration name="UserCreationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserModificationTest - 2018.08.12 at 13h 32m 28s.xml">
+      <configuration name="UserModificationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserCreationTest - 2018.08.12 at 13h 34m 02s.xml">
+      <configuration name="UserCreationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserModificationTest - 2018.08.12 at 13h 34m 30s.xml">
+      <configuration name="UserModificationTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="UserDeletionTest - 2018.08.12 at 13h 35m 05s.xml">
       <configuration name="UserDeletionTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserModificationTest - 2018.08.11 at 22h 04m 15s.xml">
-      <configuration name="UserModificationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserModificationTest - 2018.08.11 at 22h 18m 07s.xml">
-      <configuration name="UserModificationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserModificationTest - 2018.08.11 at 22h 37m 08s.xml">
-      <configuration name="UserModificationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserModificationTest - 2018.08.11 at 23h 09m 28s.xml">
-      <configuration name="UserModificationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserCreationTest - 2018.08.11 at 23h 11m 42s.xml">
-      <configuration name="UserCreationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserDeletionTest - 2018.08.11 at 23h 12m 37s.xml">
-      <configuration name="UserDeletionTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserCreationTest - 2018.08.11 at 23h 15m 09s.xml">
-      <configuration name="UserCreationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserCreationTest - 2018.08.11 at 23h 19m 09s.xml">
-      <configuration name="UserCreationTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="UserCreationTest - 2018.08.11 at 23h 21m 34s.xml">
-      <configuration name="UserCreationTest" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -844,8 +839,8 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
@@ -855,8 +850,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -867,30 +862,30 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Gradle" order="5" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
+      <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3290938" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3290938" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
@@ -1214,9 +1209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="83" selection-start-line="83" selection-end-line="83" />
-          <folding>
-            <element signature="e#2672#2673#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1224,10 +1216,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="430" selection-start-line="430" selection-end-line="430" />
-          <folding>
-            <element signature="e#15414#15415#0" expanded="true" />
-            <element signature="e#15459#15460#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1259,10 +1247,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#deleteUser#0;class#ContactHelper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/modelGroup/PersonData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="83" column="1" lean-forward="true" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+        <state relative-caret-position="124">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
           <folding>
             <element signature="e#2258#2259#0" expanded="true" />
             <element signature="e#2286#2287#0" expanded="true" />
@@ -1272,44 +1271,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserDeletionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        <state relative-caret-position="34">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserCreationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+        <state relative-caret-position="238">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#deleteUser#0;class#ContactHelper#0" />
-            <element signature="e#1513#1514#0" expanded="true" />
-            <element signature="e#1553#1554#0" expanded="true" />
-            <element signature="e#1979#1980#0" expanded="true" />
-            <element signature="e#2052#2053#0" expanded="true" />
-            <element signature="e#2303#2315#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserModificationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="27" column="73" lean-forward="true" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/testGroup/UserCreationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="269">
+          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
         </state>
       </provider>
     </entry>

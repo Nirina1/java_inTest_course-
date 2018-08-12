@@ -8,31 +8,6 @@ public class PersonData {
     //private final String middleName;
     private final String lastName;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PersonData that = (PersonData) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, firstName, lastName);
-    }
-
-    @Override
-    public String toString() {
-        return "PersonData{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
-
     //private final String companyName;
     //private final String mobilePhone;
     //private final String emailAddress;
@@ -48,8 +23,31 @@ public class PersonData {
         this.group = group;
     }
 
+    @Override
+    public String toString() {
+        return "PersonData{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonData that = (PersonData) o;
+        return Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(firstName, lastName);
+    }
+
     public PersonData(String firstName, String lastName, String group) {
-        this.id = 0;
+        this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.lastName = lastName;
         //this.companyName = companyName;
