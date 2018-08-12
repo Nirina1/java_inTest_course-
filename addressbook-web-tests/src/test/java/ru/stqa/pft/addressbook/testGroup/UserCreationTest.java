@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UserCreationTest extends TestBase {
 
-    @Test
+    @Test//(enabled = false)
     public void testUserCreationTest() {
         app.getNavigationHelper().goHomePage();
         List<PersonData> before = app.getContactHelper().getContactList();

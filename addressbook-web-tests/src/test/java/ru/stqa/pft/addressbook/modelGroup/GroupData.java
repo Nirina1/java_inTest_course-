@@ -9,14 +9,6 @@ public class GroupData {
     private final String footer;
     private final String name;
 
-    @Override
-    public String toString() {
-        return "GroupData{" +
-                "id='" + id +  '\'' +
-               ", name='" + name + '\'' +
-                '}';
-    }
-
 
     public GroupData(int id, String header, String footer, String name) {
         this.id = id;
@@ -37,6 +29,13 @@ public class GroupData {
     public int hashCode() {
 
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "GroupData{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
     public GroupData(String header, String footer, String name) {
