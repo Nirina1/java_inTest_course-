@@ -1,42 +1,37 @@
 package ru.stqa.pft.addressbook.testGroup;
 
-import org.testng.Assert;
+
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.modelGroup.UserData;
+import ru.stqa.pft.addressbook.modelGroup.Users;
 
-import ru.stqa.pft.addressbook.modelGroup.PersonData;
-
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class UserModificationTest extends TestBase{
+    @BeforeMethod
+    public void ensurePrecondition() {
+        if (app.contacts().all().size() == 0) {
+            app.contacts().create(new UserData().withName("test1").withLastName("test1").withGroup("test1"));
+        }
+    }
 
-    @Test//(enabled = false)
+    @Test
 
     public void testUserModification() {
 
+        Users before = app.contacts().all();
+        UserData modifiedUser = before.iterator().next();
+        UserData user = new UserData()
+                .withId(modifiedUser.getId()).withName("Test01").withLastName("TestName1");
+        app.contacts().modify(user);
+        Users after = app.contacts().all();
+        assertEquals(after.size(), before.size());
 
-        if (! app.getContactHelper().isThereAUser()) {
-            app.getContactHelper().createUser(new PersonData("Test", "Testname", null));
-        }
-        List<PersonData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().selectUser(before.size() - 1);
-        app.getContactHelper().initPersonModification();
-        PersonData user = new PersonData(before.get(before.size() - 1).getId(), "Test1", "Testname1", null);
-        app.getContactHelper().fillingTheForm(user, false);
-        app.getContactHelper().submitPersonModification();
-        app.getNavigationHelper().goHomePage();
-        List<PersonData> after = app.getContactHelper().getContactList();
-        Assert.assertEquals(after.size(), before.size());
-
-        before.remove(before.size() - 1);
-        before.add(user);
-        Comparator<? super PersonData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-        before.sort(byId);
-        after.sort(byId);
-        Assert.assertEquals(before, after);
-
+        assertThat(after, equalTo(before.without(modifiedUser).withAdded(user)));
 
     }
-
 }
+

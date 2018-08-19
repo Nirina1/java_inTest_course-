@@ -1,16 +1,13 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import jdk.nashorn.internal.runtime.NumberToString;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import ru.stqa.pft.addressbook.modelGroup.GroupData;
-import ru.stqa.pft.addressbook.modelGroup.PersonData;
+import ru.stqa.pft.addressbook.modelGroup.UserData;
+import ru.stqa.pft.addressbook.modelGroup.Users;
 
-import javax.swing.table.TableColumn;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -25,7 +22,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillingTheForm(PersonData personNew, boolean creation) {
+    public void fillingTheForm(UserData personNew, boolean creation) {
         type(By.name("firstname"), personNew.getFirstName());
         type(By.name("lastname"), personNew.getLastName());
         //type(By.name("company"), personNew.getCompanyName());
@@ -47,21 +44,44 @@ public class ContactHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
+    public void delete(UserData user) {
+        selectUserById(user.getId());
+        deleteUser();
+        goToHomePage();
+    }
+
     public void submitPersonModification() {
         click(By.name("update"));
     }
 
-    public void initPersonModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    public void initPersonModification(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+
     }
 
-    public void newPersonCreation() {
+    public void modify(UserData user) {
+        //selectUserById(user.getId());
+        initPersonModification(user.getId());
+        fillingTheForm(user, false);
+        submitPersonModification();
+        goToHomePage();
+    }
+
+    public void goToHomePage() {
+
+        click(By.linkText("home"));
+
+    }
+
+    public void addNew() {
         click(By.linkText("add new"));
     }
 
-    public void createUser(PersonData user) {
+    public void create(UserData user) {
+        addNew();
         fillingTheForm(user, true);
         submittingPersonCreation();
+        goToHomePage();
     }
 
     public boolean isThereAUser() {
@@ -69,30 +89,26 @@ public class ContactHelper extends HelperBase {
 
     }
 
-    public void selectUser(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
+    public void selectUserById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<PersonData> getContactList() {
-        List<PersonData> users = new ArrayList<PersonData>();
-        List<WebElement> rows = wd.findElements(By.name("entry"));
-        for (WebElement row : rows) {
+    public Users all() {
+        Users users = new Users();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        for (WebElement row : elements) {
             List<WebElement> cells = row.findElements(By.tagName("td"));
             String firstName = cells.get(2).getText();
             String lastName = cells.get(1).getText();
-
             int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
-
-            PersonData person = new PersonData(id, firstName, lastName, null);
-            users.add(person);
-
+            users.add(new UserData().withId(id).withName(firstName).withLastName(lastName));
         }
         return users;
-
     }
+
 }
 
