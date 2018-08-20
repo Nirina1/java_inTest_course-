@@ -47,6 +47,7 @@ public class ContactHelper extends HelperBase {
     public void delete(UserData user) {
         selectUserById(user.getId());
         deleteUser();
+        userCache = null;
         goToHomePage();
     }
 
@@ -60,10 +61,10 @@ public class ContactHelper extends HelperBase {
     }
 
     public void modify(UserData user) {
-        //selectUserById(user.getId());
         initPersonModification(user.getId());
         fillingTheForm(user, false);
         submitPersonModification();
+        userCache = null;
         goToHomePage();
     }
 
@@ -81,6 +82,7 @@ public class ContactHelper extends HelperBase {
         addNew();
         fillingTheForm(user, true);
         submittingPersonCreation();
+        userCache = null;
         goToHomePage();
     }
 
@@ -97,18 +99,44 @@ public class ContactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
+    private Users userCache = null;
+
     public Users all() {
-        Users users = new Users();
+        if (userCache != null) {
+            return new Users(userCache);
+        }
+        userCache = new Users();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement row : elements) {
             List<WebElement> cells = row.findElements(By.tagName("td"));
-            String firstName = cells.get(2).getText();
-            String lastName = cells.get(1).getText();
             int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
-            users.add(new UserData().withId(id).withName(firstName).withLastName(lastName));
+            String lastName = cells.get(1).getText();
+            String firstName = cells.get(2).getText();
+            String allPhones = cells.get(5).getText();
+            String address = cells.get(3).getText();
+            String allEmails = cells.get(4).getText();
+            userCache.add(new UserData().withId(id).withFirstName(firstName).withLastName(lastName).
+                     withAllPhones(allPhones).withAddress(address).withAllEmails(allEmails));
         }
-        return users;
+        return new Users(userCache);
     }
 
+    public UserData infoFromEditForm(UserData user) {
+        initPersonModification(user.getId());
+        String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+        String home = wd.findElement(By.name("home")).getAttribute("value");
+        String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+        String work = wd.findElement(By.name("work")).getAttribute("value");
+        String address = wd.findElement(By.name("address")).getAttribute("value");
+        String email1 = wd.findElement(By.name("email")).getAttribute("value");
+        String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+        String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+        wd.navigate().back();
+        return new UserData().withId(user.getId()).withFirstName(firstname).withLastName(lastname)
+                .withHomePhone(home).withMobile(mobile).withWorkPhone(work).withAddress(address)
+                .withEmail1(email1).withEmail2(email2).withEmail3(email3);
+
+    }
 }
 
