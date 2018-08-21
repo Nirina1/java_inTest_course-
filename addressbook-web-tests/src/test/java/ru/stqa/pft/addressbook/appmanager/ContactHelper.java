@@ -25,9 +25,8 @@ public class ContactHelper extends HelperBase {
     public void fillingTheForm(UserData personNew, boolean creation) {
         type(By.name("firstname"), personNew.getFirstName());
         type(By.name("lastname"), personNew.getLastName());
-        //type(By.name("company"), personNew.getCompanyName());
+        attach(By.name("photo"),personNew.getPhoto());
         //type(By.name("mobile"), personNew.getMobilePhone());
-        //type(By.name("email"), personNew.getEmailAddress());
 
 
         if (creation) {
