@@ -27,18 +27,18 @@ public class UserCreationTest extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validUsersForXml() throws IOException {
-        List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/users.xml")));
-        String xml = "";
-        String line = reader.readLine();
-        while (line != null){
-            xml += line;
-            line = reader.readLine();
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/users.xml")))) {
+            String xml = "";
+            String line = reader.readLine();
+            while (line != null) {
+                xml += line;
+                line = reader.readLine();
+            }
+            XStream xstream = new XStream();
+            xstream.processAnnotations(UserData.class);
+            List<UserData> users = (List<UserData>) xstream.fromXML(xml);
+            return users.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
         }
-        XStream xstream = new XStream();
-        xstream.processAnnotations(UserData.class);
-        List<UserData>  users = (List<UserData>) xstream.fromXML(xml);
-        return users.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
 
     @DataProvider
