@@ -15,17 +15,24 @@ public class UserData {
     private String firstName;
     @Expose
     private String lastName;
+    @Expose
     private String home;
+    @Expose
     private String mobile;
+    @Expose
     private String work;
     @Expose
     private String group;
     @Expose
     private String address;
     private String allPhones;
+    @Expose
     private String email1;
+    @Expose
     private String email2;
+    @Expose
     private String email3;
+    @Expose
     private String allEmails;
     private File photo;
 
