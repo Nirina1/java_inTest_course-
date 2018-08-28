@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import ru.stqa.pft.addressbook.modelGroup.GroupData;
 import ru.stqa.pft.addressbook.modelGroup.UserData;
 import ru.stqa.pft.addressbook.modelGroup.Users;
-
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -53,13 +53,14 @@ public class ContactHelper extends HelperBase {
         goToHomePage();
     }
 
+
+
     public void submitPersonModification() {
         click(By.name("update"));
     }
 
     public void initPersonModification(int id) {
         wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
-
     }
 
     public void modify(UserData user) {
@@ -139,6 +140,39 @@ public class ContactHelper extends HelperBase {
                 .withHomePhone(home).withMobile(mobile).withWorkPhone(work).withAddress(address)
                 .withEmail1(email1).withEmail2(email2).withEmail3(email3);
 
+    }
+
+    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    public void removeFromGroup(UserData user, GroupData group) {
+        selectRemovedUserId(user.getId());
+        goToUsersFromGroupsPage(group.getId());
+        selectUserById(user.getId());
+        submitUserRemoveFromGroup();
+        goToHomePage();
+    }
+
+    private void submitUserRemoveFromGroup() {
+        click(By.cssSelector("input[name='remove']"));
+    }
+
+    public void selectRemovedUserId(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+    }
+
+    public void goToUsersFromGroupsPage(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='?group=%s']", id))).click();
+
+    }
+
+    public void add(UserData user) {
+        selectUserById(user.getId());
+        submitUserAddInGroup();
+        goToHomePage();
+        userCache = null;
+    }
+
+    private void submitUserAddInGroup() {
+        click(By.cssSelector("input[name='add']"));
     }
 }
 

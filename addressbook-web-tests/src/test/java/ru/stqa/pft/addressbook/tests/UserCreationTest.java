@@ -6,7 +6,6 @@ import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.modelGroup.Groups;
 import ru.stqa.pft.addressbook.modelGroup.UserData;
 import ru.stqa.pft.addressbook.modelGroup.Users;
 import java.io.BufferedReader;
