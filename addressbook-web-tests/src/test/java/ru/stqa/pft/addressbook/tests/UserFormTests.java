@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.testGroup;
+package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,10 +11,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class UserFormTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() {
-        if (app.contacts().all().size() == 0) {
-            app.contacts().create(new UserData().withFirstName("name1")
-                    .withLastName("lastname1").withGroup("test1").withHomePhone("123").withMobile("1111").withWorkPhone("2342")
-                    .withAddress("Krakow").withEmail1("test@t.com").withEmail2("test@t2.com").withEmail3("test@t3.com"));
+        if (app.users().all().size() == 0) {
+            app.users().create(new UserData()
+                    .withFirstName("TestName")
+                    .withLastName("LastName")
+                    .withHomePhone("4343")
+                    .withMobile("2222")
+                    .withWorkPhone("445")
+                    .withEmail1("test1@test.com")
+                    .withEmail2("test2@test.com")
+                    .withEmail3("test3@test.com")
+                    .withAddress("Krakow"));
+                    //.inGroup(groupData));
         }
     }
 
@@ -25,8 +33,8 @@ public class UserFormTests extends TestBase {
     @Test
     public void testUserPhones() {
         app.goTo().goHomePage();
-        UserData user = app.contacts().all().iterator().next();
-        UserData userInfoFromEditForm = app.contacts().infoFromEditForm(user);
+        UserData user = app.users().all().iterator().next();
+        UserData userInfoFromEditForm = app.users().infoFromEditForm(user);
 
         assertThat(user.getAllPhones(), equalTo(mergePhones(userInfoFromEditForm)));
     }
@@ -41,8 +49,8 @@ public class UserFormTests extends TestBase {
     @Test
     public void testUserAddress() {
         app.goTo().goHomePage();
-        UserData user = app.contacts().all().iterator().next();
-        UserData userInfoFromEditForm = app.contacts().infoFromEditForm(user);
+        UserData user = app.users().all().iterator().next();
+        UserData userInfoFromEditForm = app.users().infoFromEditForm(user);
 
         assertThat(user.getAddress(), equalTo(mergeAddress(userInfoFromEditForm)));
 
@@ -58,8 +66,8 @@ public class UserFormTests extends TestBase {
     @Test
     public void testUserEmails() {
         app.goTo().goHomePage();
-        UserData user = app.contacts().all().iterator().next();
-        UserData userInfoFromEditForm = app.contacts().infoFromEditForm(user);
+        UserData user = app.users().all().iterator().next();
+        UserData userInfoFromEditForm = app.users().infoFromEditForm(user);
 
         assertThat(user.getAllEmails(), equalTo(mergeEmails(userInfoFromEditForm)));
 

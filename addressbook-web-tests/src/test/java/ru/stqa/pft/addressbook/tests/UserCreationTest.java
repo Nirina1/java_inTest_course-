@@ -1,20 +1,18 @@
-package ru.stqa.pft.addressbook.testGroup;
+package ru.stqa.pft.addressbook.tests;
 
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.modelGroup.GroupData;
+import ru.stqa.pft.addressbook.modelGroup.Groups;
 import ru.stqa.pft.addressbook.modelGroup.UserData;
 import ru.stqa.pft.addressbook.modelGroup.Users;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,24 +59,16 @@ public class UserCreationTest extends TestBase {
 
     @Test(dataProvider = "validUsersForJson")
     public void testUserCreationTest(UserData user) {
-        Users before = app.contacts().all();
-        app.goTo().goHomePage();
+        Users before = app.db().users();
         //File photo = new File("src/test/resources/alpaka.png");
-        app.contacts().create(user);
-        assertThat(app.contacts().getContactCount(), equalTo(before.size() + 1));
-        Users after = app.contacts().all();
+        app.users().goToHomePage();
+        app.users().create(user);
+        assertThat(app.users().getContactCount(), equalTo(before.size() + 1));
+        Users after = app.db().users();
         assertThat(after, equalTo(
                 before.withAdded(user.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+        verifyUserListInUI();
     }
 
-    @Ignore
-    @Test
-        public void testCurrentDir() {
-        File currentDir = new File(".");
-        System.out.println(currentDir.getAbsolutePath());
-        File photo = new File("src/test/resources/alpaka.png");
-        System.out.println(photo.getAbsolutePath());
-        System.out.println(photo.exists());
-    }
 
 }

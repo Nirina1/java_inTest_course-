@@ -3,19 +3,19 @@ package ru.stqa.pft.addressbook.modelGroup;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 
 @XStreamAlias("group")
+@Entity
+@Table(name = "group_list")
+
 public class GroupData {
-    @XStreamOmitField
-    private int id = Integer.MAX_VALUE;
-    @Expose
-    private String header;
-    @Expose
-    private String footer;
-    @Expose
-    private String name;
 
     @Override
     public boolean equals(Object o) {
@@ -23,14 +23,42 @@ public class GroupData {
         if (o == null || getClass() != o.getClass()) return false;
         GroupData groupData = (GroupData) o;
         return id == groupData.id &&
+                Objects.equals(header, groupData.header) &&
+                Objects.equals(footer, groupData.footer) &&
                 Objects.equals(name, groupData.name);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name);
+        return Objects.hash(id, header, footer, name);
     }
+
+    @XStreamOmitField
+    @Id
+    @Column(name = "group_id")
+    private int id = Integer.MAX_VALUE;
+
+    @Expose
+    @Column(name = "group_header")
+    @Type(type = "text")
+    private String header;
+
+    @Expose
+    @Column(name = "group_footer")
+    @Type(type = "text")
+    private String footer;
+
+    @Expose
+    @Column(name = "group_name")
+    private String name;
+
+    public Users getUsers() {
+        return new Users(users);
+    }
+
+    @ManyToMany(mappedBy = "groups")
+    private Set<UserData> users = new HashSet<UserData>();
 
     @Override
     public String toString() {

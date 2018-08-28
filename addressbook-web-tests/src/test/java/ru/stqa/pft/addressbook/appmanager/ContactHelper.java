@@ -25,12 +25,15 @@ public class ContactHelper extends HelperBase {
     public void fillingTheForm(UserData personNew, boolean creation) {
         type(By.name("firstname"), personNew.getFirstName());
         type(By.name("lastname"), personNew.getLastName());
-        attach(By.name("photo"),personNew.getPhoto());
+        //attach(By.name("photo"),personNew.getPhoto());
         //type(By.name("mobile"), personNew.getMobilePhone());
 
-
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(personNew.getGroup());
+            if (personNew.getGroups().size() > 0) {
+                Assert.assertTrue(personNew.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group")))
+                        .selectByVisibleText(personNew.getGroups().iterator().next().getName());
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }

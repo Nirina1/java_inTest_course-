@@ -3,38 +3,95 @@ package ru.stqa.pft.addressbook.modelGroup;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 
 @XStreamAlias("user")
+@Entity
+@Table(name = "addressbook")
 public class UserData {
     @XStreamOmitField
+    @Id
+    @Column (name = "id")
     private int id = Integer.MAX_VALUE;
+
     @Expose
+    @Column (name = "firstname")
     private String firstName;
+
     @Expose
+    @Column (name = "lastname")
     private String lastName;
+
     @Expose
+    @Column (name = "home")
+    @Type(type = "text")
     private String home;
+
     @Expose
+    @Column (name = "mobile")
+    @Type(type = "text")
     private String mobile;
+
     @Expose
+    @Column (name = "work")
+    @Type(type = "text")
     private String work;
+
     @Expose
-    private String group;
-    @Expose
+    @Column (name = "address")
+    @Type(type = "text")
     private String address;
+
+    @Transient
     private String allPhones;
-    @Expose
+
+    @Column (name = "email")
+    @Type(type = "text")
     private String email1;
-    @Expose
+
+    @Column (name = "email2")
+    @Type(type = "text")
     private String email2;
-    @Expose
+
+    @Column (name = "email3")
+    @Type(type = "text")
     private String email3;
-    @Expose
+
+    @Transient
     private String allEmails;
-    private File photo;
+
+    @Column (name = "photo")
+    @Type(type = "text")
+    private String photo;
+
+    @ManyToMany (fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups"
+            , joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserData userData = (UserData) o;
+        return id == userData.id &&
+                Objects.equals(firstName, userData.firstName) &&
+                Objects.equals(lastName, userData.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, firstName, lastName);
+    }
+
 
 
     @Override
@@ -56,7 +113,6 @@ public class UserData {
     public String getAllPhones() {
         return allPhones;
     }
-    public String getGroup() { return group; }
     public int getId() {
         return id;
     }
@@ -72,24 +128,13 @@ public class UserData {
         return allEmails;
     }
     public File getPhoto() {
-        return photo;
+        return new File(photo);
     }
+    public Groups getGroups() { return new Groups(groups);}
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserData that = (UserData) o;
-        return id == that.id &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, firstName, lastName);
+    public UserData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
     }
 
     public UserData withId(int id) {
@@ -106,10 +151,6 @@ public class UserData {
         return this;
     }
 
-    public UserData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
     public UserData withHomePhone(String home) {
         this.home = home;
         return this;
@@ -155,10 +196,14 @@ public class UserData {
     }
 
     public UserData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
-
     }
+
+
+
+
+
 }
 
 

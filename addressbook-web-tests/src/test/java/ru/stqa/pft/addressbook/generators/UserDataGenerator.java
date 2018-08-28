@@ -73,7 +73,7 @@ public class UserDataGenerator {
             try (Writer writer = new FileWriter(file)) {
                 for (UserData user : users) {
                     writer.write(String.format("%s;%s;%s\n", user.getFirstName(), user.getLastName(),
-                            user.getAddress(), user.getGroup()));
+                            user.getAddress()));
                 }
             }
         }
@@ -82,8 +82,8 @@ public class UserDataGenerator {
             List<UserData> users = new ArrayList<>();
             for (int i = 0; i < count; i++) {
                 users.add(new UserData().withFirstName(String.format("firstname %s", i))
-                        .withLastName(String.format("lastname %s", i)).withAddress(String.format("address %s", i))
-                        .withGroup("test1"));
+                        .withLastName(String.format("lastname %s", i)).withAddress(String.format("address %s", i)));
+                        //.withGroup("test1"));
             }
             return users;
         }
