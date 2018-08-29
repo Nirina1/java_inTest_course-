@@ -25,8 +25,13 @@ public class ContactHelper extends HelperBase {
     public void fillingTheForm(UserData personNew, boolean creation) {
         type(By.name("firstname"), personNew.getFirstName());
         type(By.name("lastname"), personNew.getLastName());
-        //attach(By.name("photo"),personNew.getPhoto());
-        //type(By.name("mobile"), personNew.getMobilePhone());
+        type(By.name("address"), personNew.getAddress());
+        type(By.name("home"), personNew.getHomePhone());
+        type(By.name("mobile"), personNew.getMobile());
+        type(By.name("work"), personNew.getWorkPhone());
+        type(By.name("email"), personNew.getEmail1());
+        type(By.name("email2"), personNew.getEmail2());
+        type(By.name("email3"), personNew.getEmail3());
 
         if (creation) {
             if (personNew.getGroups().size() > 0) {
@@ -149,6 +154,22 @@ public class ContactHelper extends HelperBase {
         selectUserById(user.getId());
         submitUserRemoveFromGroup();
         goToHomePage();
+    }
+
+    public UserData infoFromDetailsForm(UserData user) {
+        viewContact(user.getId());
+        String informationAboutContact = wd.findElement(By.id("content")).getText();
+        informationAboutContact = informationAboutContact
+                .replaceFirst("\\s", ";").replace("H: ", "")
+                .replace("M: ", "").replace("W: ", "")
+                .replaceAll("\\n", ";");
+        String[] split = informationAboutContact.split(";");
+        return new UserData().withFirstName(split[0]).withLastName(split[1]).withAddress(split[2]).withHomePhone(split[4])
+                .withMobile(split[5]).withWorkPhone(split[6]).withEmail1(split[8]).withEmail2(split[9]).withEmail3(split[10]);
+    }
+
+    public void viewContact(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
     }
 
     private void submitUserRemoveFromGroup() {
