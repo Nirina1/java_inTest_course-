@@ -164,8 +164,9 @@ public class ContactHelper extends HelperBase {
                 .replace("M: ", "").replace("W: ", "")
                 .replaceAll("\\n", ";");
         String[] split = informationAboutContact.split(";");
-        return new UserData().withFirstName(split[0]).withLastName(split[1]).withAddress(split[2]).withHomePhone(split[4])
-                .withMobile(split[5]).withWorkPhone(split[6]).withEmail1(split[8]).withEmail2(split[9]).withEmail3(split[10]);
+        return new UserData().withFirstName(split[0]).withLastName(split[1]).withAddress(split[2])
+                .withHomePhone(split[4]).withMobile(split[5]).withWorkPhone(split[6])
+                .withEmail1(split[8]).withEmail2(split[9]).withEmail3(split[10]);
     }
 
     public void viewContact(int id) {

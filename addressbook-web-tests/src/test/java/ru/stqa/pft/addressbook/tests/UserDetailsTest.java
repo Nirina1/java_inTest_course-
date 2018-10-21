@@ -18,14 +18,13 @@ public class UserDetailsTest extends TestBase {
                     .withEmail3("example3@test.com"));
         }
     }
-
     @Test
     public void testUserDetails() {
         app.goTo().goHomePage();
         Users users = app.db().users();
         UserData user = users.iterator().next();
         UserData userInfoFromDetailsForm = app.users().infoFromDetailsForm(user);
-
+        app.goTo().goHomePage();
         assertThat(user.getFirstName(), equalTo(userInfoFromDetailsForm.getFirstName()));
         assertThat(user.getLastName(), equalTo(userInfoFromDetailsForm.getLastName()));
         assertThat(user.getAddress(), equalTo(userInfoFromDetailsForm.getAddress()));
